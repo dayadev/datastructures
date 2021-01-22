@@ -53,14 +53,14 @@ func breadth(n *node) {
 	if n != nil {
 		s := []*node{n}
 		for len(s) > 0 {
-			current_node := s[0]
-			fmt.Printf(current_node.value + " ")
+			currentNode := s[0]
+			fmt.Printf(currentNode.value + " ")
 			s = s[1:]
-			if current_node.left != nil {
-				s = append(s, current_node.left)
+			if currentNode.left != nil {
+				s = append(s, currentNode.left)
 			}
-			if current_node.right != nil {
-				s = append(s, current_node.right)
+			if currentNode.right != nil {
+				s = append(s, currentNode.right)
 			}
 		}
 	}
