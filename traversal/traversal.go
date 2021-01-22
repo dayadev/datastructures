@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type node struct {
 	value string
@@ -63,7 +65,28 @@ func breadth(n *node) {
 		}
 	}
 }
-
+func findMin(n *node) string {
+	if n == nil {
+		return "0"
+	}
+	for {
+		if n.left == nil {
+			return n.value
+		}
+		n = n.left
+	}
+}
+func findMax(n *node) string {
+	if n == nil {
+		return "0"
+	}
+	for {
+		if n.right == nil {
+			return n.value
+		}
+		n = n.right
+	}
+}
 func main() {
 	var root *node
 	root = insert(root, "F")
@@ -73,6 +96,9 @@ func main() {
 	root = insert(root, "E")
 	root = insert(root, "G")
 	root = insert(root, "J")
+	root = insert(root, "Z")
+	root = insert(root, "A")
+
 	fmt.Println("Pre-order DFS traversal")
 	preorder(root)
 	fmt.Println("\nIn-order DFS traversal")
@@ -81,4 +107,8 @@ func main() {
 	postorder(root)
 	fmt.Println("\nBFS traversal")
 	breadth(root)
+	fmt.Println("\nMin")
+	println(findMin(root))
+	fmt.Println("Max")
+	println(findMax(root))
 }
