@@ -87,6 +87,21 @@ func findMax(n *node) string {
 		n = n.right
 	}
 }
+func find(n *node, v string) bool {
+	if n == nil {
+		return false
+	}
+	if v == n.value {
+		return true
+	}
+	if v < n.value {
+		return find(n.left, v)
+	}
+	if v > n.value {
+		return find(n.right, v)
+	}
+	return false
+}
 func main() {
 	var root *node
 	root = insert(root, "F")
@@ -111,4 +126,8 @@ func main() {
 	println(findMin(root))
 	fmt.Println("Max")
 	println(findMax(root))
+	fmt.Println("Existence")
+	println(find(root, "X"))
+	println(find(root, "Z"))
+
 }
